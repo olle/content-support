@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## 1.0.0-SNAPSHOT
+
+* Next upcoming release..
+
 ## v0.4.1
 
 * Minor fixes to the POM, for building on more recent JDKs than 8.
