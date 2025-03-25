@@ -1,17 +1,17 @@
-Content Builder
+Content Support
 ===============
 
-[![Build Status](https://travis-ci.org/Contargo/content-builder.svg?branch=master)](https://travis-ci.org/Contargo/content-builder)
-[![](https://jitpack.io/v/Contargo/content-builder.svg)](https://jitpack.io/#Contargo/content-builder)
-
-A small library that provides an easy to use API, supporting creation of
-content, in services and back-ends, intended for end-user consumption.
+A small library that provides an easy way to create structured, portable and
+localizable content, in services and back-ends, intended for frontend and
+end-user views.
 
 In short - helps you create content in a common format, for web and mobile
 clients.
 
-Gettings started
-----------------
+_A detached fork of the archived https://github.com/Contargo/content-builder
+project, that I initially created._
+
+## Gettings started
 
 Using `content-builder` in your project, as a library, means simply including
 it as a Maven dependency. We recommend using [Jitpack](https://jitpack.io) to
@@ -20,13 +20,13 @@ resolve the dependency:
 ```xml
 <dependency>
   <!-- From Jitpack-repo -->
-  <groupId>com.github.Contargo</groupId>
-  <artifactId>content-builder</artifactId>
+  <groupId>com.github.olle</groupId>
+  <artifactId>content-support</artifactId>
   <version>${SOME-TAG}</version>
 </dependency>
 ```
 
-## General Idea ##
+## Introduction
 
 It might sometimes be necessary to create content, for publishing or persisting,
 inside a business services or back-end. This means actual readable content, and
@@ -40,19 +40,18 @@ small format that we recommend using.
 This project provides a small library, that makes it easy to create and consume
 such content by services and applications written in Java.
 
-## Micro-Reference ##
+## Micro-reference
 
-The __COLA Common Content Format__ that we use, is easy for developers to
-understand and very easy to use. Below is a small example representation in
-JSON.
+The __Common Content Format__ that we use, is easy for developers to understand
+and very easy to use. Below is a small example representation as a JSON object.
 
-```javascript
+```js
 {
   contents: [{
-      mimeType: 'text/vnd.contargo.description',
+      mimeType: 'text/vnd.content.description',
       content: 'Kontakt'
     }, {
-      mimeType: 'text/vnd.contargo.description',
+      mimeType: 'text/vnd.content.description',
       locale: 'en',
       content: 'Contact'
     }]
@@ -71,30 +70,19 @@ available guide- or reference information.
 Our current choice of content type specification, is to extend on the style and
 format of media- or MIME type definitions.
 
-For example `text/vnd.contargo.description` is defined from the pattern:
+For example `text/vnd.content.description` is defined from the pattern:
 
-    '${type}/vnd.contargo.${name}'
+    '${type}/vnd.content.${name}'
 
 With the option to use subtypes and charset definitions, just as with media
 types.
 
-    '${type}/vnd.contargo.${name}+${subtype};${params}'
+    '${type}/vnd.content.${name}+${subtype};${params}'
 
 There's more information and concrete definitions in the project Java API
 documentation.
 
-## Known Issues
+## Development
 
-Compatibility with JSON serialization, currently assumes the use of
-[Jackson Databind][1]. This might change in the future, to suite more use-
-cases.
-
-_We use `jackson-annotations` to ensure omission of empty properties when
-serializing to JSON._
-
- [1]: https://github.com/FasterXML/jackson-databind
-
-## Development ##
-
-This is a pretty straight-forward Java-project, use `mvn` to build,
+This is a pretty straight-forward Java-project, for now use `mvn` to build,
 test and deploy. Happy hacking!
