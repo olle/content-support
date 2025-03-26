@@ -1,22 +1,15 @@
 package com.studiomediatech.content;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.studiomediatech.content.Content;
-import com.studiomediatech.content.Contents;
-import com.studiomediatech.content.MimeType;
 
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Locale;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-/**
- * @author Olle Törnström - toernstroem@synyx.de
- */
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class ContentTest {
 
     @Test
@@ -24,25 +17,25 @@ public class ContentTest {
 
         Content c1 = new Content("type", "value");
         String string1 = c1.toString();
-        assertTrue("Missing information: '" + string1 + "'", string1.contains("mimeType=type"));
-        assertTrue("Missing information: '" + string1 + "'", string1.contains("content=value"));
-        assertFalse("Must not have information + '" + string1 + "'", string1.contains("locale="));
+        assertThat(string1).as("Missing information").contains("mimeType=type");
+        assertThat(string1).as("Missing information").contains("content=value");
+        assertThat(string1).as("Must not have information").doesNotContain("locale=");
 
         Content c2 = new Content("type", "value", Locale.ENGLISH);
         String string2 = c2.toString();
-        assertTrue("Missing information: '" + string2 + "'", string2.contains("locale=en"));
+        assertThat(string2).as("Missing information").contains("locale=en");
     }
 
     @Test
     public void ensureReadsProperContentFromJSON() throws Exception {
 
-        String json = "{\"mimeType\": \"text/vnd.contargo.appicon\", \"content\": \"some-app-icon\", \"locale\": \"sv\"}";
+        String json = "{\"mimeType\": \"text/vnd.content.appicon\", \"content\": \"some-app-icon\", \"locale\": \"sv\"}";
 
         Content content = new ObjectMapper().readValue(json.getBytes(), Content.class);
 
-        assertEquals(MimeType.TEXT_APPICON_VAL, content.getMimeType());
-        assertEquals("some-app-icon", content.getContent().toString());
-        assertEquals(new Locale("sv").getLanguage(), content.getLocale().getLanguage());
+        assertThat(content.getMimeType()).isEqualTo(MimeType.TEXT_APPICON_VAL);
+        assertThat(content.getContent().toString()).isEqualTo("some-app-icon");
+        assertThat(content.getLocale().getLanguage()).isEqualTo(Locale.forLanguageTag("sv").getLanguage());
     }
 
     @Test
@@ -55,7 +48,7 @@ public class ContentTest {
 
         Content content = new ObjectMapper().readValue(json.getBytes(), Content.class);
 
-        assertEquals(MimeType.IMAGE_APPICON_VAL, content.getMimeType());
-        assertArrayEquals(bytes, (byte[]) content.getContent());
+        assertThat(content.getMimeType()).isEqualTo(MimeType.IMAGE_APPICON_VAL);
+        assertThat((byte[]) content.getContent()).containsExactly(bytes);
     }
 }
