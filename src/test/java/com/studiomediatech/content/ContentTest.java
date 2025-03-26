@@ -1,7 +1,5 @@
 package com.studiomediatech.content;
 
-
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Locale;

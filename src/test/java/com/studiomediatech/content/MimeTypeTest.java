@@ -40,6 +40,6 @@ public class MimeTypeTest {
     public void ensureCanCreateMimeTypeVariantsWithParams() throws Exception {
 
         assertThat(MimeType.TEXT_APPICON.withParams("foobar").getMimeType())
-            .isEqualTo("text/vnd.content.appicon;foobar");
+                .isEqualTo("text/vnd.content.appicon;foobar");
     }
 }

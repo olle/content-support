@@ -102,8 +102,8 @@ public class ContentsTest {
     @Test
     public void ensureReturnsJsonString() throws Exception {
 
-        String json = Contents.withMimeType(MimeType.TEXT_BODY).andValue("Say it").andValue("Säg det", Locale.forLanguageTag("sv"))
-                .asJSON();
+        String json = Contents.withMimeType(MimeType.TEXT_BODY).andValue("Say it")
+                .andValue("Säg det", Locale.forLanguageTag("sv")).asJSON();
 
         JSONAssert.assertEquals("[" + "{mimeType: 'text/vnd.content.body', content: 'Say it'}, "
                 + "{mimeType: 'text/vnd.content.body', content: 'Säg det', locale: 'sv'}]", json, true);
