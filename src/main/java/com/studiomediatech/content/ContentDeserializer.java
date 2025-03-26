@@ -16,7 +16,7 @@ import java.util.Locale;
 /**
  * Custom deserializer for content entries.
  *
-
+ *
  *
  * @since 0.2
  */

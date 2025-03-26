@@ -51,35 +51,16 @@ ${type}/vnd.content.${name}+${subtype};${params}
  * content, to the user.
  * </p>
  *
-
+ *
  *
  * @since 0.1
  */
 public final class MimeType {
 
-    /**
-     * @see #TEXT_SUBJECT
-     */
     public static final String TEXT_SUBJECT_VAL = "text/vnd.content.subject";
-
-    /**
-     * @see #TEXT_DESCRIPTION
-     */
     public static final String TEXT_DESCRIPTION_VAL = "text/vnd.content.description";
-
-    /**
-     * @see #TEXT_BODY
-     */
     public static final String TEXT_BODY_VAL = "text/vnd.content.body";
-
-    /**
-     * @see #TEXT_APPICON
-     */
     public static final String TEXT_APPICON_VAL = "text/vnd.content.appicon";
-
-    /**
-     * @see #IMAGE_APPICON
-     */
     public static final String IMAGE_APPICON_VAL = "image/vnd.content.appicon";
 
     /**

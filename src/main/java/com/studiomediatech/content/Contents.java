@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Chaining builder for COLA Common Content, providing an easy to use and developer-friendly API for working with
  * content creation.
  *
-
+ *
  *
  * @since 0.1
  */
@@ -95,7 +95,7 @@ public final class Contents {
     /**
      * Builder can add value, with an optional locale.
      *
-    
+     *
      *
      * @since 0.1
      */
@@ -137,7 +137,7 @@ public final class Contents {
     /**
      * Appendable can append another mime-type content entry to the builder.
      *
-    
+     *
      *
      * @since 0.1
      */
@@ -157,7 +157,7 @@ public final class Contents {
     /**
      * Buildable can build the resulting contents.
      *
-    
+     *
      *
      * @since 0.1
      */
