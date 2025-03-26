@@ -1,14 +1,15 @@
-package net.contargo.content;
+package com.studiomediatech.content;
 
 import org.junit.Test;
+
+import com.studiomediatech.content.MimeType;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
 /**
- * @author  Olle Törnström - toernstroem@synyx.de
+ * @author Olle Törnström - toernstroem@synyx.de
  */
 public class MimeTypeTest {
 
@@ -19,7 +20,6 @@ public class MimeTypeTest {
         assertEquals("text/vnd.contargo.description", MimeType.TEXT_DESCRIPTION.getMimeType());
         assertEquals("text/vnd.contargo.body", MimeType.TEXT_BODY.getMimeType());
     }
-
 
     @Test
     public void ensureEqualsForInstancesAreCorrect() throws Exception {
@@ -32,7 +32,6 @@ public class MimeTypeTest {
         assertFalse(MimeType.TEXT_BODY.equals(MimeType.TEXT_SUBJECT));
     }
 
-
     @Test
     @SuppressWarnings("unlikely-arg-type")
     public void ensureEqualsForStringComparisonIsAvailable() throws Exception {
@@ -43,7 +42,6 @@ public class MimeTypeTest {
         assertTrue(MimeType.TEXT_DESCRIPTION.equals("text/vnd.contargo.description"));
         assertTrue(MimeType.TEXT_BODY.equals("text/vnd.contargo.body"));
     }
-
 
     @Test
     public void ensureCanCreateMimeTypeVariantsWithParams() throws Exception {

@@ -18,7 +18,7 @@
         <java.release.version>21</java.release.version>
         <jackson.version>2.18.3</jackson.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <hamcrest.version>3.0</hamcrest.version>
+        <hamcrest.version>2.2</hamcrest.version>
     </properties>
 
     <dependencies>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.13.0-M2</version>
+            <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -51,24 +51,12 @@
             <version>5.16.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			  <groupId>org.assertj</groupId>
+			  <artifactId>assertj-core</artifactId>
+			  <version>3.27.2</version>
+			  <scope>test</scope>
+		</dependency>        
         <dependency>
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>

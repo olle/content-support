@@ -1,4 +1,4 @@
-package net.contargo.content;
+package com.studiomediatech.content;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -11,15 +11,17 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
-
 /**
  * A COLA Common Content Format entry.
  *
- * <p>This class represents the unit of a content entry, in the COLA Common Content Format. It will contain the
- * mime-type description and content data, with an optional language or locale, for localization.</p>
+ * <p>
+ * This class represents the unit of a content entry, in the COLA Common Content Format. It will contain the mime-type
+ * description and content data, with an optional language or locale, for localization.
+ * </p>
  *
- * @author  Olle Törnström - toernstroem@synyx.de
- * @since  0.1
+ * @author Olle Törnström - toernstroem@synyx.de
+ *
+ * @since 0.1
  */
 @JsonInclude(Include.NON_ABSENT)
 @JsonDeserialize(using = ContentDeserializer.class)
@@ -34,25 +36,25 @@ public class Content {
         // Required!
     }
 
-
     Content(String mimeType, Object content) {
 
         this(mimeType, content, Optional.empty());
     }
-
 
     Content(String mimeType, Object content, Locale locale) {
 
         this(mimeType, content, Optional.of(locale));
     }
 
-
     /**
      * Private constructor for content entries.
      *
-     * @param  mimeType  of the entry
-     * @param  content  of the entry
-     * @param  locale  of the entry
+     * @param mimeType
+     *            of the entry
+     * @param content
+     *            of the entry
+     * @param locale
+     *            of the entry
      */
     private Content(String mimeType, Object content, Optional<Locale> locale) {
 
@@ -64,35 +66,32 @@ public class Content {
     /**
      * Returns the mime type of this content entry.
      *
-     * @return  mime type string
+     * @return mime type string
      */
     public String getMimeType() {
 
         return this.mimeType;
     }
 
-
     /**
      * Returns the content data of this entry.
      *
-     * @return  content data object
+     * @return content data object
      */
     public Object getContent() {
 
         return content;
     }
 
-
     /**
      * Returns the locale of this content entry.
      *
-     * @return  the entry locale or {@code null} if it does not exist
+     * @return the entry locale or {@code null} if it does not exist
      */
     public Locale getLocale() {
 
         return locale.orElse(null);
     }
-
 
     @Override
     public String toString() {
@@ -104,7 +103,6 @@ public class Content {
 
         return MessageFormat.format("Content [mimeType={0}, content={1}]", mimeType, content);
     }
-
 
     static Map<String, Object> asMap(Content content) {
 
@@ -118,12 +116,10 @@ public class Content {
         return map;
     }
 
-
     boolean forMimeType(MimeType mimeType) {
 
         return this.mimeType.equals(mimeType.getMimeType());
     }
-
 
     boolean forMimeTypeAndLocale(MimeType mimeType, Locale locale) {
 

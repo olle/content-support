@@ -1,4 +1,4 @@
-package net.contargo.content;
+package com.studiomediatech.content;
 
 import com.fasterxml.jackson.core.Base64Variants;
 import com.fasterxml.jackson.core.JsonParser;
@@ -13,12 +13,12 @@ import java.io.IOException;
 
 import java.util.Locale;
 
-
 /**
  * Custom deserializer for content entries.
  *
- * @author  Olle Törnström - toernstroem@synyx.de
- * @since  0.2
+ * @author Olle Törnström - toernstroem@synyx.de
+ *
+ * @since 0.2
  */
 public final class ContentDeserializer extends StdDeserializer<Content> {
 

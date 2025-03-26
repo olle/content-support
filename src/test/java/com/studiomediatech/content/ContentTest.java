@@ -1,6 +1,9 @@
-package net.contargo.content;
+package com.studiomediatech.content;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.studiomediatech.content.Content;
+import com.studiomediatech.content.Contents;
+import com.studiomediatech.content.MimeType;
 
 import org.junit.Test;
 
@@ -11,9 +14,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
 /**
- * @author  Olle Törnström - toernstroem@synyx.de
+ * @author Olle Törnström - toernstroem@synyx.de
  */
 public class ContentTest {
 
@@ -31,12 +33,10 @@ public class ContentTest {
         assertTrue("Missing information: '" + string2 + "'", string2.contains("locale=en"));
     }
 
-
     @Test
     public void ensureReadsProperContentFromJSON() throws Exception {
 
-        String json =
-            "{\"mimeType\": \"text/vnd.contargo.appicon\", \"content\": \"some-app-icon\", \"locale\": \"sv\"}";
+        String json = "{\"mimeType\": \"text/vnd.contargo.appicon\", \"content\": \"some-app-icon\", \"locale\": \"sv\"}";
 
         Content content = new ObjectMapper().readValue(json.getBytes(), Content.class);
 
@@ -45,16 +45,12 @@ public class ContentTest {
         assertEquals(new Locale("sv").getLanguage(), content.getLocale().getLanguage());
     }
 
-
     @Test
     public void ensureReadsPropertByteContentFromJSON() throws Exception {
 
         byte[] bytes = new byte[] { 1, 2, 3 };
 
-        String json = Contents.withMimeType(MimeType.IMAGE_APPICON)
-                .andValue(bytes)
-                .asJSON()
-                .replace("[", "")
+        String json = Contents.withMimeType(MimeType.IMAGE_APPICON).andValue(bytes).asJSON().replace("[", "")
                 .replace("]", "");
 
         Content content = new ObjectMapper().readValue(json.getBytes(), Content.class);
