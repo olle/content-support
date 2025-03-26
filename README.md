@@ -8,7 +8,7 @@ end-user views.
 In short - helps you create content in a common format, for web and mobile
 clients.
 
-_A detached fork of the archived https://github.com/Contargo/content-builder
+_A detached fork of the forgotten https://github.com/Contargo/content-builder
 project, that I initially created._
 
 ## Gettings started
