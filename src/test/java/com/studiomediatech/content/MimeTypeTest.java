@@ -1,51 +1,45 @@
 package com.studiomediatech.content;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import com.studiomediatech.content.MimeType;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-/**
- * @author Olle Törnström - toernstroem@synyx.de
- */
 public class MimeTypeTest {
 
     @Test
     public void ensureDeclaredContentMimeTypeConstants() {
 
-        assertEquals("text/vnd.contargo.subject", MimeType.TEXT_SUBJECT.getMimeType());
-        assertEquals("text/vnd.contargo.description", MimeType.TEXT_DESCRIPTION.getMimeType());
-        assertEquals("text/vnd.contargo.body", MimeType.TEXT_BODY.getMimeType());
+        assertThat(MimeType.TEXT_SUBJECT.getMimeType()).isEqualTo("text/vnd.content.subject");
+        assertThat(MimeType.TEXT_DESCRIPTION.getMimeType()).isEqualTo("text/vnd.content.description");
+        assertThat(MimeType.TEXT_BODY.getMimeType()).isEqualTo("text/vnd.content.body");
     }
 
     @Test
     public void ensureEqualsForInstancesAreCorrect() throws Exception {
 
-        assertTrue(MimeType.TEXT_SUBJECT.equals(MimeType.TEXT_SUBJECT));
-        assertTrue(MimeType.TEXT_DESCRIPTION.equals(MimeType.TEXT_DESCRIPTION));
+        assertThat(MimeType.TEXT_SUBJECT.equals(MimeType.TEXT_SUBJECT)).isTrue();
+        assertThat(MimeType.TEXT_DESCRIPTION.equals(MimeType.TEXT_DESCRIPTION)).isTrue();
 
-        assertTrue(MimeType.TEXT_BODY.equals(MimeType.TEXT_BODY));
-        assertFalse(MimeType.TEXT_BODY.equals(MimeType.TEXT_DESCRIPTION));
-        assertFalse(MimeType.TEXT_BODY.equals(MimeType.TEXT_SUBJECT));
+        assertThat(MimeType.TEXT_BODY.equals(MimeType.TEXT_BODY)).isTrue();
+        assertThat(MimeType.TEXT_BODY.equals(MimeType.TEXT_DESCRIPTION)).isFalse();
+        assertThat(MimeType.TEXT_BODY.equals(MimeType.TEXT_SUBJECT)).isFalse();
     }
 
     @Test
     @SuppressWarnings("unlikely-arg-type")
     public void ensureEqualsForStringComparisonIsAvailable() throws Exception {
 
-        assertTrue(MimeType.TEXT_SUBJECT.equals("text/vnd.contargo.subject"));
-        assertFalse(MimeType.TEXT_SUBJECT.equals("text/vnd.contargo.description"));
+        assertThat(MimeType.TEXT_SUBJECT.equals("text/vnd.content.subject")).isTrue();
+        assertThat(MimeType.TEXT_SUBJECT.equals("text/vnd.content.description")).isFalse();
 
-        assertTrue(MimeType.TEXT_DESCRIPTION.equals("text/vnd.contargo.description"));
-        assertTrue(MimeType.TEXT_BODY.equals("text/vnd.contargo.body"));
+        assertThat(MimeType.TEXT_DESCRIPTION.equals("text/vnd.content.description")).isTrue();
+        assertThat(MimeType.TEXT_BODY.equals("text/vnd.content.body")).isTrue();
     }
 
     @Test
     public void ensureCanCreateMimeTypeVariantsWithParams() throws Exception {
 
-        assertEquals("text/vnd.contargo.appicon;foobar", MimeType.TEXT_APPICON.withParams("foobar").getMimeType());
+        assertThat(MimeType.TEXT_APPICON.withParams("foobar").getMimeType())
+            .isEqualTo("text/vnd.content.appicon;foobar");
     }
 }
