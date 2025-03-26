@@ -16,7 +16,7 @@ import java.util.Locale;
 /**
  * Custom deserializer for content entries.
  *
- * @author Olle Törnström - toernstroem@synyx.de
+
  *
  * @since 0.2
  */

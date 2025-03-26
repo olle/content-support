@@ -19,7 +19,7 @@ import java.util.Optional;
  * description and content data, with an optional language or locale, for localization.
  * </p>
  *
- * @author Olle Törnström - toernstroem@synyx.de
+
  *
  * @since 0.1
  */

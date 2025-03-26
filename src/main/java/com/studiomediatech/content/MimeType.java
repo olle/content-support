@@ -51,7 +51,7 @@ ${type}/vnd.content.${name}+${subtype};${params}
  * content, to the user.
  * </p>
  *
- * @author Olle Törnström - toernstroem@synyx.de
+
  *
  * @since 0.1
  */
