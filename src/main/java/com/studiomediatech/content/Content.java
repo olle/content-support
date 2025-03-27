@@ -9,6 +9,7 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -29,9 +30,29 @@ public class Content {
     private Object content;
     private Optional<Locale> locale;
 
+    /**
+     * Hidden empty constructor.
+     *
+     * Required by the JSON decoder.
+     */
     protected Content() {
-
         // Required!
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(content, locale, mimeType);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Content other = (Content) obj;
+        return Objects.equals(content, other.content) && Objects.equals(locale, other.locale)
+                && Objects.equals(mimeType, other.mimeType);
     }
 
     Content(String mimeType, Object content) {

@@ -8,7 +8,14 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class ContentTest {
+
+    @Test
+    void ensureEqualsByValue() throws Exception {
+        EqualsVerifier.simple().forClass(Content.class).verify();
+    }
 
     @Test
     public void ensureHasPrettyToString() throws Exception {

@@ -57,10 +57,25 @@ ${type}/vnd.content.${name}+${subtype};${params}
  */
 public final class MimeType {
 
+    /**
+     * {@value #TEXT_SUBJECT_VAL}
+     */
     public static final String TEXT_SUBJECT_VAL = "text/vnd.content.subject";
+    /**
+     * {@value #TEXT_DESCRIPTION_VAL}
+     */
     public static final String TEXT_DESCRIPTION_VAL = "text/vnd.content.description";
+    /**
+     * {@value #TEXT_BODY_VAL}
+     */
     public static final String TEXT_BODY_VAL = "text/vnd.content.body";
+    /**
+     * {@value #TEXT_APPICON_VAL}
+     */
     public static final String TEXT_APPICON_VAL = "text/vnd.content.appicon";
+    /**
+     * {@value #IMAGE_APPICON_VAL}
+     */
     public static final String IMAGE_APPICON_VAL = "image/vnd.content.appicon";
 
     /**

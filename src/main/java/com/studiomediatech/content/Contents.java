@@ -1,8 +1,5 @@
 package com.studiomediatech.content;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,10 +8,13 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
- * Chaining builder for common content, providing an easy to use and developer-friendly API for working with
- * content creation.
- * 
+ * Chaining builder for common content, providing an easy to use and developer-friendly API for working with content
+ * creation.
+ *
  * @since 0.1
  */
 public final class Contents {
@@ -22,7 +22,6 @@ public final class Contents {
     private final List<Content> values = new ArrayList<>();
 
     private Contents() {
-
         // Hidden
     }
 

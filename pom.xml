@@ -63,6 +63,11 @@
             <version>2.0-rc1</version>
             <scope>test</scope>
         </dependency>
+		<dependency>
+		    <groupId>nl.jqno.equalsverifier</groupId>
+		    <artifactId>equalsverifier</artifactId>
+		    <version>3.19.2</version>
+		</dependency>        
     </dependencies>
 
     <build>

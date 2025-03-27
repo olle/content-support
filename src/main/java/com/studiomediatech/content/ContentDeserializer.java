@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 /**
- * Custom deserializer for content entries.
- *
- *
+ * Custom de-serializer for content entries.
  *
  * @since 0.2
  */
@@ -24,6 +22,9 @@ public final class ContentDeserializer extends StdDeserializer<Content> {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Creates a new content de-serializer instance, for reading JSON into {@link Content} objects.
+     */
     public ContentDeserializer() {
 
         super(Content.class);
