@@ -12,11 +12,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Chaining builder for COLA Common Content, providing an easy to use and developer-friendly API for working with
+ * Chaining builder for common content, providing an easy to use and developer-friendly API for working with
  * content creation.
- *
- *
- *
+ * 
  * @since 0.1
  */
 public final class Contents {

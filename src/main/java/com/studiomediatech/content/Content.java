@@ -12,14 +12,12 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * A COLA Common Content Format entry.
+ * A common content format entry.
  *
  * <p>
- * This class represents the unit of a content entry, in the COLA Common Content Format. It will contain the mime-type
+ * This class represents the unit of a content entry, in the Common Content Format. It will contain the mime-type
  * description and content data, with an optional language or locale, for localization.
  * </p>
- *
- *
  *
  * @since 0.1
  */
