@@ -13,7 +13,7 @@ project, that I initially created._
 
 ## Gettings started
 
-Using `content-builder` in your project, as a library, means simply including
+Using `content-support` in your project, as a library, means simply including
 it as a Maven dependency. We recommend using [Jitpack](https://jitpack.io) to
 resolve the dependency:
 
